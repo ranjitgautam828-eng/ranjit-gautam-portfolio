@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio · Projects</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="nav-logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="academic.html">Academic</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="academic.html">Academic</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero container">
+            <h1>Projects</h1>
+            <p>Selected work focusing on clean design and user experience</p>
+        </section>
+
+        <section class="section container">
+            <!-- Project Filter (Optional) -->
+            <div class="text-center mb-4">
+                <button class="btn filter-btn active" data-filter="all">All</button>
+                <button class="btn btn-outline filter-btn" data-filter="web">Web</button>
+                <button class="btn btn-outline filter-btn" data-filter="mobile">Mobile</button>
+                <button class="btn btn-outline filter-btn" data-filter="design">Design</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <i class="fas fa-laptop-code fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>Minimalist portfolio website with focus on content and fast loading times.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Weather App</h3>
+                        <p>Clean weather application with location detection and 7-day forecast.</p>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">API</span>
+                            <span class="tag">UI Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="design">
+                    <div class="project-image">
+                        <i class="fas fa-palette fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Design System</h3>
+                        <p>Comprehensive design system with reusable components and guidelines.</p>
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">UI Kit</span>
+                            <span class="tag">Design Tokens</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Business Dashboard</h3>
+                        <p>Analytics dashboard for tracking business metrics with data visualization.</p>
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Charts.js</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <i class="fas fa-book-reader fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Reading App</h3>
+                        <p>Mobile app for book lovers with reading tracker and recommendations.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">UX Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-bag fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Online Store</h3>
+                        <p>E-commerce platform with product filtering, cart, and secure checkout.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://ranjitgautam828-eng.github.io/ranjit-portfolio/" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ranjit-gautam-5b7ab2238/" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                 <a href="mailto:ranjit.gautam@student.ufv.ca" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="footer-text">Turning classroom projects in web, networking, and security into real-world solutions.
+</p>
+            <p class="copyright">&copy; <span id="current-year">2026</span> Ranjit Gautam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

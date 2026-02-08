@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio · Academic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic.html" class="active">Academic</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="academic.html" class="active">Academic</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero container">
+            <h1>Academic Background</h1>
+            <p>Education and academic projects that shaped my expertise</p>
+        </section>
+
+        <section class="section container">
+            <!-- Education Timeline -->
+            <div class="certifications-list">
+                <!-- Education 1 -->
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h4>Master of Science in Computer Science</h4>
+                        <p class="cert-date">Stanford University · 2020-2022</p>
+                        <p>Specialized in Human-Computer Interaction and Web Technologies. GPA: 3.8/4.0</p>
+                        <div class="project-tags mt-2">
+                            <span class="tag">Thesis: Web Accessibility</span>
+                            <span class="tag">Research Assistant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education 2 -->
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h4>Bachelor of Technology in Computer Engineering</h4>
+                        <p class="cert-date">MIT · 2016-2020</p>
+                        <p>Focus on Software Engineering and Web Development. Graduated with Honors.</p>
+                        <div class="project-tags mt-2">
+                            <span class="tag">Dean's List</span>
+                            <span class="tag">Student Council</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container">
+            <h2 class="text-center">Academic Projects</h2>
+            <div class="projects-grid mt-4">
+                <!-- Academic Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-universal-access fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Accessibility Research Tool</h3>
+                        <p>Developed a tool to analyze and improve website accessibility for users with disabilities.</p>
+                        <div class="project-tags">
+                            <span class="tag">Research</span>
+                            <span class="tag">Accessibility</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-brain fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI-Powered Design System</h3>
+                        <p>Research project on using machine learning to generate consistent design systems.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Design Systems</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-network fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Performance Optimization Study</h3>
+                        <p>Comprehensive analysis of web performance optimization techniques and their impact.</p>
+                        <div class="project-tags">
+                            <span class="tag">Performance</span>
+                            <span class="tag">Web Vitals</span>
+                            <span class="tag">Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://ranjitgautam828-eng.github.io/ranjit-portfolio/" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ranjit-gautam-5b7ab2238/" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                 <a href="mailto:ranjit.gautam@student.ufv.ca" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="footer-text">Turning classroom projects in web, networking, and security into real-world solutions.
+</p>
+            <p class="copyright">&copy; <span id="current-year">2026</span> Ranjit Gautam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
