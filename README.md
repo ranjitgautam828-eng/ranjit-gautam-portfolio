@@ -76,25 +76,12 @@ ranjit-gautam-portfolio/
 Clone the repository:
 
 ```bash
-git clone https://github.com/ranjitgautam828-eng/ranjit-portfolio.git
-```
-
-Navigate to project directory:
-
-```bash
-cd ranjit-portfolio
-```
-
-Open in browser:
-
-```bash
-open index.html
-# or double-click index.html
+git clone https://github.com/ranjitgautam828-eng/ranjit-gautam-portfolio
 ```
 
 ## 🔗 Live Demo
 
-Visit the live site: [(https://ranjitgautam828-eng.github.io/ranjit-gautam-portfolio/) 
+Visit the live site: https://ranjitgautam828-eng.github.io/ranjit-gautam-portfolio/
 
 ## 📧 Contact
 
