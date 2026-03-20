@@ -94,7 +94,7 @@ open index.html
 
 ## 🔗 Live Demo
 
-Visit the live site: [ranjitgautam828-eng.github.io/ranjit-portfolio](https://ranjitgautam828-eng.github.io/ranjit-portfolio/)
+Visit the live site: [[ranjitgautam828-eng.github.io/ranjit-portfolio](https://ranjitgautam828-eng.github.io/ranjit-portfolio/)](https://ranjitgautam828-eng.github.io/ranjit-gautam-portfolio/) 
 
 ## 📧 Contact
 
