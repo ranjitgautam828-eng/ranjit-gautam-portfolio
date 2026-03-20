@@ -67,9 +67,7 @@ ranjit-gautam-portfolio/
 
 * HTML5
 * CSS3 (Custom properties, Flexbox, Grid)
-* JavaScript (ES6+)
-* Font Awesome 6.4.0
-* Google Fonts (System fonts - SF Pro, Helvetica Neue)
+* JavaScript 
 
 ## 📦 Installation
 
