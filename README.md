@@ -94,11 +94,11 @@ open index.html
 
 ## 🔗 Live Demo
 
-Visit the live site: [[ranjitgautam828-eng.github.io/ranjit-portfolio](https://ranjitgautam828-eng.github.io/ranjit-portfolio/)](https://ranjitgautam828-eng.github.io/ranjit-gautam-portfolio/) 
+Visit the live site: [(https://ranjitgautam828-eng.github.io/ranjit-gautam-portfolio/) 
 
 ## 📧 Contact
 
-* Email: [ranjit.gautam@student.ufv.ca](mailto:ranjit.gautam@student.ufv.ca)
+* Email: ranjitgautam828@gmail.com
 * LinkedIn: Ranjit Gautam
 * GitHub: @ranjitgautam828-eng
 
