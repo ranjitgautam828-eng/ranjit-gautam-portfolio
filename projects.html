@@ -1,27 +1,70 @@
-e<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio · Projects</title>
+    <title>Projects — Ranjit Gautam</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%20fill%3D%27%23000000%27%3ER%3C%2Ftext%3E%3C%2Fsvg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Ctext%20y%3D%27.9em%27%20font-size%3D%2790%27%20fill%3D%27%23000000%27%3ER%3C%2Ftext%3E%3C%2Fsvg%3E">
+    <style>
+        .project-card-full { background:#fff; border:1px solid #e5e5e7; border-radius:12px; overflow:hidden; margin-bottom:32px; transition:box-shadow 0.2s; }
+        .project-card-full:hover { box-shadow:0 6px 24px rgba(0,0,0,0.07); }
+        .project-inner { display:grid; grid-template-columns:1fr 1fr; }
+        .project-inner.reverse { direction:rtl; }
+        .project-inner.reverse > * { direction:ltr; }
+        .screenshot-gallery { position:relative; background:#f1f1f3; overflow:hidden; border-radius:12px 0 0 12px; min-height:280px; }
+        .project-inner.reverse .screenshot-gallery { border-radius:0 12px 12px 0; }
+        .screenshot-track { position:relative; height:280px; overflow:hidden; }
+        .screenshot-slide { position:absolute; top:0; left:0; width:100%; height:100%; transition:transform 0.35s ease; }
+        .screenshot-slide img { width:100%; height:280px; object-fit:cover; display:block; }
+        .screenshot-slide.placeholder { display:flex; align-items:center; justify-content:center; }
+        .gallery-label { position:absolute; top:10px; left:10px; background:rgba(0,0,0,0.55); color:white; font-size:10px; padding:3px 8px; border-radius:12px; font-weight:500; z-index:10; }
+        .gallery-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.35); border:none; color:white; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:11px; display:flex; align-items:center; justify-content:center; z-index:10; transition:background 0.2s; }
+        .gallery-btn:hover { background:rgba(0,0,0,0.6); }
+        .gallery-btn.prev { left:10px; }
+        .gallery-btn.next { right:10px; }
+        .gallery-dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:10; }
+        .gallery-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.45); cursor:pointer; border:none; transition:background 0.2s; padding:0; }
+        .gallery-dot.active { background:white; }
+        .project-info { padding:28px; display:flex; flex-direction:column; }
+        .project-header { display:flex; align-items:flex-start; gap:8px; margin-bottom:6px; flex-wrap:wrap; }
+        .project-name { font-size:17px; font-weight:700; color:#1d1d1f; line-height:1.2; }
+        .badge { font-size:10px; font-weight:600; padding:3px 9px; border-radius:99px; white-space:nowrap; }
+        .badge-blue { background:#dbeafe; color:#1d4ed8; }
+        .badge-amber { background:#fef3c7; color:#92400e; }
+        .badge-green { background:#dcfce7; color:#166534; }
+        .project-meta-line { font-size:12px; color:#86868b; margin-bottom:10px; font-weight:500; }
+        .project-desc { font-size:13px; color:#1d1d1f; line-height:1.6; margin-bottom:12px; }
+        .feature-list { display:grid; grid-template-columns:1fr 1fr; gap:5px 12px; margin-bottom:12px; background:#f8fafc; padding:10px 12px; border-radius:8px; }
+        .feature-list span { font-size:12px; color:#374151; display:flex; align-items:center; gap:5px; }
+        .feature-list i { color:#0071e3; font-size:9px; }
+        .project-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px; }
+        .tag { font-size:11px; padding:3px 8px; background:#f1f1f3; border-radius:4px; color:#86868b; font-weight:500; }
+        .project-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:auto; }
+        .project-links a { font-size:12px; color:#0071e3; text-decoration:none; font-weight:500; display:flex; align-items:center; gap:4px; }
+        .project-links a:hover { text-decoration:underline; }
+        .swap-hint { font-size:11px; color:#c0c0c5; margin-top:8px; font-style:italic; }
+        .section-label { font-size:12px; font-weight:600; color:#86868b; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid #e5e5e7; }
+        @media (max-width:768px) {
+            .project-inner, .project-inner.reverse { grid-template-columns:1fr; direction:ltr; }
+            .screenshot-gallery { border-radius:12px 12px 0 0 !important; min-height:220px; }
+            .screenshot-track { height:220px; }
+            .screenshot-slide img { height:220px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
-            <div class="nav-logo">Portfolio</div>
+            <div class="nav-logo">Ranjit Gautam</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html" class="active">Projects</a></li>
                 <li><a href="qualification.html">Qualification</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
         </nav>
         <div class="mobile-menu">
             <ul class="mobile-nav-links">
@@ -36,207 +79,259 @@ e<!DOCTYPE html>
     <main>
         <section class="page-hero container">
             <h1>Projects</h1>
-            <p>Selected work focusing on clean design and user experience</p>
+            <p>Full-stack applications, networking infrastructure, and system design</p>
         </section>
 
+        <!-- FEATURED -->
         <section class="section container">
-            <!-- Projects Grid -->
-            <div class="projects-grid">
-                <!-- Small Business Operations System -->
-                <div class="project-card" data-category="web server">
-                    <div class="project-image">
-                        <i class="fas fa-store fa-3x" style="color: #00543C;"></i>
-                    </div>
-                    <div class="project-content">
-                        <h2>Small Business Operations System <span style="background: #00543C; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 12px; margin-left: 0.5rem;">Full Stack</span></h2>
-                        <p><strong>Complete inventory & order management system</strong> for small retail businesses. Built with Java, MySQL, and XAMPP. Features real-time stock tracking, order processing, low-stock alerts, and role-based access.</p>
-                        
-                        <!-- Key Features (compact) -->
-                        <div style="margin: 12px 0; font-size: 12px; background: #f8fafc; padding: 10px; border-radius: 6px;">
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                                <span><i class="fas fa-check-circle" style="color: #00543C; font-size: 10px;"></i> Inventory tracking</span>
-                                <span><i class="fas fa-check-circle" style="color: #00543C; font-size: 10px;"></i> Order processing</span>
-                                <span><i class="fas fa-check-circle" style="color: #00543C; font-size: 10px;"></i> Low-stock alerts</span>
-                                <span><i class="fas fa-check-circle" style="color: #00543C; font-size: 10px;"></i> Sales reporting</span>
+            <div class="section-label">Featured Projects</div>
+
+            <!-- Friend Manager -->
+            <div class="project-card-full">
+                <div class="project-inner">
+                    <div class="screenshot-gallery">
+                        <span class="gallery-label" id="fm-label">1 / 2</span>
+                        <div class="screenshot-track">
+                            <div class="screenshot-slide" style="transform:translateX(0%)">
+                                <img src="images/projects/friend-manager-login.svg" alt="Friend Manager dashboard">
+                            </div>
+                            <div class="screenshot-slide" style="transform:translateX(100%)">
+                                <img src="images/projects/friend-manager-register.svg" alt="Friend Manager login">
+                            </div>
+                            <div class="screenshot-slide" style="transform:translateX(200%)">
+                                <img src="images/projects/friend-manager-dashboard.svg" alt="Friend Manager dashboard">
                             </div>
                         </div>
-                        
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">XAMPP</span>
-                            <span class="tag">Tomcat</span>
-                            <span class="tag">REST API</span>
-                            <span class="tag">JDBC</span>
+                        <button class="gallery-btn prev" onclick="slide('fm',-1)"><i class="fas fa-chevron-left"></i></button>
+                        <button class="gallery-btn next" onclick="slide('fm',1)"><i class="fas fa-chevron-right"></i></button>
+                        <div class="gallery-dots" id="fm-dots">
+                            <button class="gallery-dot active" onclick="goTo('fm',0)"></button>
+                            <button class="gallery-dot" onclick="goTo('fm',1)"></button>
+                            <button class="gallery-dot" onclick="goTo('fm',2)"></button>
                         </div>
-                        
-                        <!-- Action Buttons -->
-                        <div style="display: flex; gap: 10px; margin-top: 15px;">
-                            <a href="#" style="font-size: 12px; color: #00543C; text-decoration: none; font-weight: 500;"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" style="font-size: 12px; color: #00543C; text-decoration: none; font-weight: 500;"><i class="fas fa-external-link-alt"></i> Demo</a>
-                            <a href="#" style="font-size: 12px; color: #00543C; text-decoration: none; font-weight: 500;"><i class="fas fa-file-pdf"></i> Documentation</a>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <span class="project-name">Friend Manager</span>
+                            <span class="badge badge-blue">Full Stack</span>
+                        </div>
+                        <p class="project-meta-line">Node.js &middot; Express &middot; MongoDB &middot; JWT &middot; Winter 2026</p>
+                        <p class="project-desc">A full-stack CRUD web app with secure authentication and per-user data isolation. Each account can only access its own records — enforced with a <code>createdBy</code> field on MongoDB documents and JWT-protected routes.</p>
+                        <div class="feature-list">
+                            <span><i class="fas fa-circle"></i> JWT authentication</span>
+                            <span><i class="fas fa-circle"></i> bcrypt password hashing</span>
+                            <span><i class="fas fa-circle"></i> User data isolation</span>
+                            <span><i class="fas fa-circle"></i> RESTful API routes</span>
+                            <span><i class="fas fa-circle"></i> Session management</span>
+                            <span><i class="fas fa-circle"></i> Mongoose schemas</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">JWT</span><span class="tag">bcrypt</span><span class="tag">REST API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ranjitgautam828-eng" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Portfolio Website -->
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <i class="fas fa-laptop-code fa-3x"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Portfolio Website</h3>
-                        <p>Minimalist portfolio website with focus on content and fast loading times.</p>
-                        <div class="project-tags">
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Responsive</span>
+            <!-- Coffee Shop -->
+            <div class="project-card-full">
+                <div class="project-inner reverse">
+                    <div class="screenshot-gallery" style="background:linear-gradient(135deg,#1a1a2e,#16213e); display:flex; align-items:center; justify-content:center;">
+                        <div style="text-align:center; color:white; padding:24px;">
+                            <i class="fas fa-coffee" style="font-size:48px; opacity:0.5; display:block; margin-bottom:16px;"></i>
+                            <p style="font-size:13px; color:rgba(255,255,255,0.5); margin:0;">Screenshots coming soon</p>
+                            <p style="font-size:11px; color:rgba(255,255,255,0.3); margin-top:6px;">Currently in active development</p>
                         </div>
-                    <!-- Action Buttons -->
-                        <div style="display: flex; gap: 10px; margin-top: 15px;">
-                            <a href="#" style="font-size: 12px; color: #00543C; text-decoration: none; font-weight: 500;"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" style="font-size: 12px; color: #00543C; text-decoration: none; font-weight: 500;"><i class="fas fa-external-link-alt"></i> Demo</a>
-                            <a href="#" style="font-size: 12px; color: #00543C; text-decoration: none; font-weight: 500;"><i class="fas fa-file-pdf"></i> Documentation</a>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <span class="project-name">Coffee Shop Web App</span>
+                            <span class="badge badge-amber">In Progress</span>
+                        </div>
+                        <p class="project-meta-line">Node.js &middot; Express &middot; MongoDB &middot; HTML/CSS/JS &middot; 2026</p>
+                        <p class="project-desc">A deployed e-commerce web app for a coffee shop with user accounts, product menu listings, and cart functionality. Being built for live deployment on Render.com with a public URL.</p>
+                        <div class="feature-list">
+                            <span><i class="fas fa-circle"></i> User login &amp; accounts</span>
+                            <span><i class="fas fa-circle"></i> Menu &amp; product listings</span>
+                            <span><i class="fas fa-circle"></i> Cart functionality</span>
+                            <span><i class="fas fa-circle"></i> Live deployment (Render)</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">JavaScript</span><span class="tag">E-commerce</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ranjitgautam828-eng" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
+        <!-- ACADEMIC -->
         <section class="section container">
-            <h2 class="text-center">Academic Projects</h2>
-            <div class="projects-grid mt-4">
-                <!-- Academic Project 1 -->
-                <section class="section container">
-                        <div class="projects-grid mt-4">
+            <div class="section-label">Academic Projects</div>
 
-                            <!-- Web Development Project -->
-                            <div class="project-card">
-                                <div class="project-image text-center">
-                                    <i class="fas fa-laptop-code fa-3x"></i>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Web Development Project</h3>
-                                    <ul style="font-size:14px; color:var(--gray-6); padding-left:18px; margin-top:8px;">
-                                        <li>Developed and deployed web pages using HTML, CSS, and JavaScript</li>
-                                        <li>Implemented interactive forms with basic input validation</li>
-                                        <li>Focused on UI structure, usability, and responsive design</li>
-                                    </ul>
-                                    <div class="project-tags mt-2">
-                                        <span class="tag">Web</span>
-                                        <span class="tag">HTML/CSS/JS</span>
-                                        <span class="tag">UI/UX</span>
-                                    </div>
-                                </div>
+            <!-- Campus Network -->
+            <div class="project-card-full">
+                <div class="project-inner">
+                    <div class="screenshot-gallery">
+                        <span class="gallery-label" id="net-label">1 / 1</span>
+                        <div class="screenshot-track">
+                            <div class="screenshot-slide" style="transform:translateX(0%)">
+                                <img src="images/projects/network-topology.svg" alt="Campus network topology diagram">
                             </div>
-
-                            <!-- Cisco Networking Project -->
-                            <div class="project-card">
-                                <div class="project-image text-center">
-                                    <i class="fas fa-network-wired fa-3x"></i>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Cisco Networking Project</h3>
-                                    <ul style="font-size:14px; color:var(--gray-6); padding-left:18px; margin-top:8px;">
-                                        <li>Configured and deployed a university network including a branch office</li>
-                                        <li>Documented network setup, IP allocation, and connectivity testing</li>
-                                        <li>Learned practical routing, switching, and troubleshooting</li>
-                                    </ul>
-                                    <div class="project-tags mt-2">
-                                        <span class="tag">Networking</span>
-                                        <span class="tag">Cisco</span>
-                                        <span class="tag">IT Systems</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Database Project -->
-                            <div class="project-card">
-                                <div class="project-image text-center">
-                                    <i class="fas fa-database fa-3x"></i>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Database Project</h3>
-                                    <ul style="font-size:14px; color:var(--gray-6); padding-left:18px; margin-top:8px;">
-                                        <li>Created and queried SQL databases to manage structured datasets</li>
-                                        <li>Performed data cleaning and basic analysis</li>
-                                        <li>Documented and presented project findings</li>
-                                    </ul>
-                                    <div class="project-tags mt-2">
-                                        <span class="tag">SQL</span>
-                                        <span class="tag">Databases</span>
-                                        <span class="tag">Data Analysis</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Mobile App Report -->
-                            <div class="project-card">
-                                <div class="project-image text-center">
-                                    <i class="fas fa-mobile-alt fa-3x"></i>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Mobile App Report</h3>
-                                    <ul style="font-size:14px; color:var(--gray-6); padding-left:18px; margin-top:8px;">
-                                        <li>Prepared a comprehensive report for a mobile application project</li>
-                                        <li>Focused on requirement documentation and functional analysis</li>
-                                    </ul>
-                                    <div class="project-tags mt-2">
-                                        <span class="tag">Documentation</span>
-                                        <span class="tag">Mobile</span>
-                                        <span class="tag">Analysis</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Programming / Data Structures -->
-                            <div class="project-card">
-                                <div class="project-image text-center">
-                                    <i class="fas fa-code fa-3x"></i>
-                                </div>
-                                <div class="project-content">
-                                    <h3>Programming & Data Structures</h3>
-                                    <ul style="font-size:14px; color:var(--gray-6); padding-left:18px; margin-top:8px;">
-                                        <li>Implemented OOP concepts in C++ and Java</li>
-                                        <li>Learned and applied data structures and algorithms</li>
-                                        <li>Practiced problem-solving and structured programming logic</li>
-                                    </ul>
-                                    <div class="project-tags mt-2">
-                                        <span class="tag">C++</span>
-                                        <span class="tag">Java</span>
-                                        <span class="tag">Data Structures</span>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-                    </section>
+                        <div class="gallery-dots" id="net-dots">
+                            <button class="gallery-dot active"></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <span class="project-name">Secure Campus Network Design</span>
+                            <span class="badge badge-green">Networking</span>
+                        </div>
+                        <p class="project-meta-line">Cisco IOS &middot; Packet Tracer &middot; OSPF &middot; EIGRP &middot; Fall 2024</p>
+                        <p class="project-desc">Designed and simulated a full 3-layer hierarchical campus network (core, distribution, access) serving 4 departments across 14+ devices. Configured real Cisco IOS commands for routing, switching, security, and failover.</p>
+                        <div class="feature-list">
+                            <span><i class="fas fa-circle"></i> 3-layer architecture</span>
+                            <span><i class="fas fa-circle"></i> VLAN segmentation</span>
+                            <span><i class="fas fa-circle"></i> EtherChannel redundancy</span>
+                            <span><i class="fas fa-circle"></i> HSRP failover</span>
+                            <span><i class="fas fa-circle"></i> ACLs &amp; port security</span>
+                            <span><i class="fas fa-circle"></i> OSPF / EIGRP routing</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Cisco IOS</span><span class="tag">Packet Tracer</span><span class="tag">VLANs</span><span class="tag">HSRP</span><span class="tag">OSPF</span><span class="tag">ACLs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ranjitgautam828-eng" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- ATM Simulator -->
+            <div class="project-card-full">
+                <div class="project-inner reverse">
+                    <div class="screenshot-gallery">
+                        <span class="gallery-label" id="atm-label">1 / 1</span>
+                        <div class="screenshot-track">
+                            <div class="screenshot-slide" style="transform:translateX(0%)">
+                                <img src="images/projects/atm-terminal.svg" alt="ATM Simulator terminal">
+                            </div>
+                            <div class="screenshot-slide" style="transform:translateX(100%)">
+                                <img src="images/projects/atm-history.svg" alt="ATM transaction history and SDD">
+                            </div>
+                        </div>
+                        <div class="gallery-dots" id="atm-dots">
+                            <button class="gallery-dot active" onclick="goTo('atm',0)"></button>
+                            <button class="gallery-dot" onclick="goTo('atm',1)"></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <span class="project-name">ATM Simulator</span>
+                            <span class="badge badge-green">Java / OOP</span>
+                        </div>
+                        <p class="project-meta-line">Java &middot; OOP &middot; Software Design &middot; Spring 2024</p>
+                        <p class="project-desc">A Java console application simulating core ATM operations — PIN auth, balance checks, withdrawals, deposits, and transaction history. Accompanied by a full Software Design Document (SDD) covering architecture, data design, and requirements matrix.</p>
+                        <div class="feature-list">
+                            <span><i class="fas fa-circle"></i> PIN authentication</span>
+                            <span><i class="fas fa-circle"></i> Withdraw &amp; deposit</span>
+                            <span><i class="fas fa-circle"></i> Transaction history</span>
+                            <span><i class="fas fa-circle"></i> Full SDD written</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Java</span><span class="tag">OOP</span><span class="tag">ArrayList</span><span class="tag">Documentation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ranjitgautam828-eng" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campus Connect -->
+            <div class="project-card-full">
+                <div class="project-inner">
+                    <div class="screenshot-gallery">
+                        <span class="gallery-label" id="cc-label">1 / 1</span>
+                        <div class="screenshot-track">
+                            <div class="screenshot-slide" style="transform:translateX(0%)">
+                                <img src="images/projects/campus-connect-1.svg" alt="Campus Connect dashboard mockup">
+                            </div>
+                        </div>
+                        <div class="gallery-dots" id="cc-dots">
+                            <button class="gallery-dot active"></button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <span class="project-name">Campus Connect</span>
+                            <span class="badge badge-green">System Design</span>
+                        </div>
+                        <p class="project-meta-line">System Design &middot; Requirements &middot; Documentation &middot; Spring 2025</p>
+                        <p class="project-desc">Full system design for a mobile-first university platform consolidating course management, event scheduling, campus navigation, and emergency alerts for 4 stakeholder groups — students, faculty, staff, and administration.</p>
+                        <div class="feature-list">
+                            <span><i class="fas fa-circle"></i> System requirements</span>
+                            <span><i class="fas fa-circle"></i> Design artifacts</span>
+                            <span><i class="fas fa-circle"></i> Implementation plan</span>
+                            <span><i class="fas fa-circle"></i> Risk management</span>
+                            <span><i class="fas fa-circle"></i> MFA &amp; role-based access</span>
+                            <span><i class="fas fa-circle"></i> Stakeholder analysis</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">System Design</span><span class="tag">Requirements</span><span class="tag">Documentation</span><span class="tag">UX</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://github.com/ranjitgautam828-eng/ranjit-gautam-portfolio" class="social-link" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ranjit-gautam-5b7ab2238/" class="social-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                 <a href="mailto:ranjitgautam828@gmail.com" class="social-link" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
+                <a href="https://github.com/ranjitgautam828-eng" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ranjit-gautam-5b7ab2238/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:ranjitgautam828@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
-            <p class="footer-text">Turning academic projects into practical, real-world software solutions.
-</p>
+            <p class="footer-text">Turning academic projects into practical, real-world software solutions.</p>
             <p class="copyright">&copy; <span id="current-year">2026</span> Ranjit Gautam. All rights reserved.</p>
         </div>
     </footer>
 
-
     <script src="js/main.js"></script>
+    <script>
+        const st = {};
+        function getSlides(id) {
+            return document.querySelector('#' + id + '-label') 
+                ? document.querySelector('#' + id + '-label').closest('.screenshot-gallery').querySelectorAll('.screenshot-slide')
+                : [];
+        }
+        function slide(id, dir) {
+            const slides = getSlides(id);
+            if (!slides.length) return;
+            st[id] = ((st[id] || 0) + dir + slides.length) % slides.length;
+            render(id);
+        }
+        function goTo(id, idx) {
+            st[id] = idx;
+            render(id);
+        }
+        function render(id) {
+            const slides = getSlides(id);
+            if (!slides.length) return;
+            const cur = st[id] || 0;
+            slides.forEach((s, i) => s.style.transform = `translateX(${(i - cur) * 100}%)`);
+            const label = document.getElementById(id + '-label');
+            if (label) label.textContent = `${cur + 1} / ${slides.length}`;
+            const dots = document.getElementById(id + '-dots');
+            if (dots) Array.from(dots.children).forEach((d,i) => d.classList.toggle('active', i === cur));
+        }
+        ['fm','net','atm','cc'].forEach(id => render(id));
+    </script>
 </body>
 </html>

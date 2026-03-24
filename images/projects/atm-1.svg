@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <rect width="800" height="450" fill="#1a1a2e"/>
+  <rect x="200" y="40" width="400" height="370" rx="12" fill="#16213e" stroke="#0f3460" stroke-width="2"/>
+  <rect x="220" y="60" width="360" height="260" rx="6" fill="#0d0d1a" stroke="#1a1a3e" stroke-width="1"/>
+  <text x="400" y="90" font-family="monospace" font-size="14" fill="#00d4aa" text-anchor="middle">Welcome to the ATM Simulator!</text>
+  <text x="400" y="115" font-family="monospace" font-size="11" fill="#7fc4b0" text-anchor="middle">Please enter your PIN to continue</text>
+  <text x="240" y="150" font-family="monospace" font-size="11" fill="#4ade80">ATM Menu</text>
+  <text x="240" y="170" font-family="monospace" font-size="11" fill="#94a3b8">1. Check Balance</text>
+  <text x="240" y="188" font-family="monospace" font-size="11" fill="#94a3b8">2. Withdraw Money</text>
+  <text x="240" y="206" font-family="monospace" font-size="11" fill="#94a3b8">3. Deposit Money</text>
+  <text x="240" y="224" font-family="monospace" font-size="11" fill="#94a3b8">4. Transaction History</text>
+  <text x="240" y="242" font-family="monospace" font-size="11" fill="#94a3b8">5. Exit</text>
+  <text x="240" y="268" font-family="monospace" font-size="11" fill="#fbbf24">Enter your choice: 1</text>
+  <text x="240" y="288" font-family="monospace" font-size="11" fill="#4ade80">Your balance is: $1000.00</text>
+  <rect x="230" y="298" width="340" height="2" fill="#1a3a5e"/>
+  <text x="240" y="315" font-family="monospace" font-size="11" fill="#fbbf24">Enter your choice: 2</text>
+  <text x="240" y="333" font-family="monospace" font-size="11" fill="#94a3b8">Amount to withdraw: $50</text>
+  <text x="240" y="351" font-family="monospace" font-size="11" fill="#4ade80">Withdrawal successful. Balance: $950.00</text>
+  <rect x="220" y="336" width="360" height="2" fill="#0f3460"/>
+  <rect x="240" y="356" width="100" height="28" rx="4" fill="#0f3460" stroke="#1a5276" stroke-width="1"/>
+  <rect x="355" y="356" width="100" height="28" rx="4" fill="#0f3460" stroke="#1a5276" stroke-width="1"/>
+  <rect x="470" y="356" width="100" height="28" rx="4" fill="#0f3460" stroke="#1a5276" stroke-width="1"/>
+  <text x="290" y="374" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">CONFIRM</text>
+  <text x="405" y="374" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">CANCEL</text>
+  <text x="520" y="374" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">MENU</text>
+  <rect x="220" y="398" width="360" height="2" fill="#0f3460"/>
+  <text x="400" y="430" font-family="system-ui" font-size="11" fill="#475569" text-anchor="middle">ATM Simulator — Java Console App — Replace with real screenshot</text>
+</svg>
