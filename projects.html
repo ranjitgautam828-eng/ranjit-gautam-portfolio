@@ -212,21 +212,23 @@
             <!-- ATM Simulator -->
             <div class="project-card-full">
                 <div class="project-inner reverse">
-                    <div class="screenshot-gallery">
-                        <span class="gallery-label" id="atm-label">1 / 1</span>
-                        <div class="screenshot-track">
-                            <div class="screenshot-slide" style="transform:translateX(0%)">
-                                <img src="images/projects/atm-1.png" alt="ATM Simulator terminal">
+                     <div class="screenshot-gallery">
+                            <span class="gallery-label" id="atm-label">1 / 2</span>
+                            <div class="screenshot-track">
+                                <div class="screenshot-slide" style="transform:translateX(0%)">
+                                    <img src="images/projects/atm-1.png" alt="ATM Simulator terminal">
+                                </div>
+                                <div class="screenshot-slide" style="transform:translateX(100%)">
+                                    <img src="images/projects/atm-history.png" alt="ATM transaction history and SDD">
+                                </div>
                             </div>
-                            <div class="screenshot-slide" style="transform:translateX(100%)">
-                                <img src="images/projects/atm-history.png" alt="ATM transaction history and SDD">
+                            <button class="gallery-btn prev" onclick="slide('atm', -1)"><i class="fas fa-chevron-left"></i></button>
+                            <button class="gallery-btn next" onclick="slide('atm', 1)"><i class="fas fa-chevron-right"></i></button>
+                            <div class="gallery-dots" id="atm-dots">
+                                <button class="gallery-dot active" onclick="goTo('atm', 0)"></button>
+                                <button class="gallery-dot" onclick="goTo('atm', 1)"></button>
                             </div>
                         </div>
-                        <div class="gallery-dots" id="atm-dots">
-                            <button class="gallery-dot active" onclick="goTo('atm',0)"></button>
-                            <button class="gallery-dot" onclick="goTo('atm',1)"></button>
-                        </div>
-                    </div>
                     <div class="project-info">
                         <div class="project-header">
                             <span class="project-name">ATM Simulator</span>
